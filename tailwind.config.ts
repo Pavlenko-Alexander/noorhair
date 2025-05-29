@@ -1,7 +1,7 @@
-const { fontFamily } = require('tailwindcss/defaultTheme');
+import type { Config } from 'tailwindcss';
+const defaultTheme = require('tailwindcss/defaultTheme');
 
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -10,11 +10,13 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-roboto)', ...fontFamily.sans],
+        sans: ['var(--font-roboto)', ...defaultTheme.fontFamily.sans],
         roboto: ['var(--font-roboto)'],
-        gotham: ['var(--font-gotham-regular)', 'sans-serif'],
+        'gotham-regular': ['var(--font-gotham-regular)', 'sans-serif'],
+        // ...
       },
     },
   },
   plugins: [],
 };
+export default config;

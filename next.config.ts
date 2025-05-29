@@ -1,11 +1,10 @@
-const isProd = process.env.NODE_ENV === 'production';
-const repoName = 'noorhair';
-
-/** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: isProd ? `/${repoName}` : '',
-  assetPrefix: isProd ? `/${repoName}` : '',
+  basePath: '/noorhair',
+  assetPrefix: '/noorhair',
+  images: {
+    unoptimized: true,
+  },
 };
 
 module.exports = nextConfig;
